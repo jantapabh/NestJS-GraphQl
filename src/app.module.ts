@@ -4,16 +4,15 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql'
 import { BookModule } from './book/book.module';
 import { BookResolver } from './book/book.resolver';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      installSubscriptionHandlers: true,
-      autoSchemaFile: 'schema.gql',
-      debug: false,
-      playground: true,
+      autoSchemaFile:'schema.gql',
     }),
     BookModule,
+    CatsModule,
   ],
   controllers: [AppController],
   providers: [AppService, BookResolver],
